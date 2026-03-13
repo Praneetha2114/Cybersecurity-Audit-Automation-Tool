@@ -1,45 +1,64 @@
-Cybersecurity Audit Automation Tool
+# Cybersecurity Audit Automation Tool
 
-A Python-based project that automates key steps of the cybersecurity audit process.
+A Python-based tool that automates parts of the cybersecurity audit workflow.
 
-The tool helps generate audit checklists, calculate compliance results, and visualize audit findings using an interactive dashboard.
+It helps security teams:
 
-Project Features
-Control Library
+- Generate audit checklists
+- Track control compliance
+- Calculate compliance scores
+- Visualize audit results in a dashboard
 
-The project maintains a centralized list of security controls in:
+---
+
+## Project Overview
+
+This project demonstrates how cybersecurity audits can be automated using:
+
+- Python
+- Excel
+- Data analytics
+- Dashboard visualization
+
+The tool converts a security control library into an interactive audit system.
+
+---
+
+## Key Features
+
+### Control Library
+
+Security controls are stored in:
 
 questions.xlsx
 
-Each control contains the following fields:
+Each control includes:
 
-Domain
+- Domain
+- Question
+- Framework
+- Control ID
 
-Question
+Example:
 
-Framework
+| Domain | Question | Framework | Control ID |
+|------|------|------|------|
+| Access Control | Role-based access control implemented | ISO 27001 | A.9.1 |
+| Authentication | Multi-factor authentication enabled | CIS | CIS 6 |
 
-Control ID
+---
 
-Example control mapping:
-
-Domain	Question	Framework	Control ID
-Access Control	Role-based access control implemented	ISO 27001	A.9.1
-Authentication	Multi-factor authentication enabled	CIS	CIS 6
-Monitoring	Logs monitored using a SIEM tool	NIST	DE.AE
-Automated Audit Checklist Generation
+### Automated Audit Checklist
 
 Script used:
 
 export_to_excel.py
 
-Functionality:
+This script:
 
-Reads security controls from questions.xlsx
-
-Generates a structured checklist
-
-Adds audit tracking columns automatically
+- Reads controls from the control library
+- Generates a structured audit checklist
+- Adds tracking columns automatically
 
 Generated file:
 
@@ -47,158 +66,100 @@ audit_checklist.xlsx
 
 Checklist structure:
 
-S.No	Domain	Question	Framework	Control ID	Status	Evidence	Comments
-Status Tracking
+| S.No | Domain | Question | Framework | Control ID | Status | Evidence | Comments |
 
-The Status column contains a dropdown with three values:
+---
 
-Pass
+### Status Tracking
 
-Fail
+The Status column supports three options:
 
-Not Tested
+Pass  
+Fail  
+Not Tested  
 
-Status colors are automatically applied.
+Status colors:
 
-Status	Color
-Pass	Green
-Fail	Red
-Not Tested	Yellow
+| Status | Indicator |
+|------|------|
+| Pass | Green |
+| Fail | Red |
+| Not Tested | Yellow |
 
-This allows quick identification of control results.
+---
 
-Compliance Scoring
+### Compliance Scoring
 
 Script used:
 
 audit_score.py
 
-The script calculates the following metrics:
+Metrics calculated:
 
-Total Controls
-
-Passed Controls
-
-Failed Controls
-
-Compliance Percentage
-
-Example output:
-
-Total Controls: 45
-Passed Controls: 30
-Failed Controls: 10
-Compliance Score: 66.7%
-
-Generated report file:
-
-audit_report.xlsx
-Interactive Audit Dashboard
-
-Script used:
-
-audit_dashboard.py
-
-The dashboard is built using Streamlit.
-
-Run the dashboard using:
-
-streamlit run audit_dashboard.py
-Dashboard Capabilities
-
-The dashboard provides the following analytics:
-
-Compliance Metrics
-
-Total Controls
-
-Passed Controls
-
-Failed Controls
-
-Compliance Percentage
-
-Control Status Distribution
-
-Displays the distribution of:
-
-Pass
-
-Fail
-
-Not Tested
-
-Domain Compliance Analysis
+- Total Controls
+- Passed Controls
+- Failed Controls
+- Compliance Percentage
 
 Example:
 
-Domain	Passed	Failed	Compliance %
-Access Control	8	2	80%
-Authentication	6	4	60%
+Total Controls: 45  
+Passed Controls: 30  
+Failed Controls: 10  
+Compliance Score: 66.7%
 
-Framework Coverage
+Generated report:
 
-Displays the number of controls mapped to frameworks.
+audit_report.xlsx
 
-Framework	Controls
-ISO 27001	20
-NIST	15
-CIS	10
+---
 
-Failed Control Risk Analysis
+### Interactive Dashboard
 
-Failed controls are categorized by risk.
+Dashboard built using Streamlit.
 
-Domain	Question	Risk Level
-Authentication	MFA not enabled	High
-Backup & Recovery	Backup restoration not tested	Medium
+Run:
 
-Domain Filtering
+streamlit run audit_dashboard.py
 
-Users can filter the dashboard by security domain.
+Dashboard features:
 
-Examples:
+- Compliance metrics
+- Domain analysis
+- Framework coverage
+- Failed control analysis
+- Domain filtering
+- Export results
 
-Governance
+---
 
-Access Control
+## Technologies Used
 
-Authentication
+| Technology | Purpose |
+|------|------|
+| Python | Automation |
+| Pandas | Data processing |
+| OpenPyXL | Excel automation |
+| Streamlit | Dashboard |
+| Excel | Control library |
 
-Monitoring
+---
 
-Incident Response
+## Project Structure
 
-Export Results
-
-Filtered results can be exported as:
-
-audit_results.csv
-Technologies Used
-
-The project uses the following technologies:
-
-Python
-
-Pandas
-
-OpenPyXL
-
-Streamlit
-
-Microsoft Excel
-
-Project Structure
 Cybersecurity-Audit-Automation-Tool
-│
-├── questions.xlsx
-├── export_to_excel.py
-├── audit_score.py
-├── audit_dashboard.py
-├── audit_checklist.xlsx
-├── audit_report.xlsx
-└── README.md
-Installation
+
+questions.xlsx  
+export_to_excel.py  
+audit_score.py  
+audit_dashboard.py  
+audit_checklist.xlsx  
+audit_report.xlsx  
+README.md
+
+---
+
+## Installation
 
 Clone the repository:
 
@@ -211,9 +172,12 @@ cd Cybersecurity-Audit-Automation-Tool
 Install dependencies:
 
 pip install pandas openpyxl streamlit
-How to Use the Tool
-Step 1 — Define Security Controls
 
+---
+
+## Usage
+
+Step 1 — Define Controls  
 Edit the control library:
 
 questions.xlsx
@@ -221,72 +185,65 @@ questions.xlsx
 Required columns:
 
 Domain | Question | Framework | Control ID
-Step 2 — Generate the Audit Checklist
 
-Run the following script:
+---
+
+Step 2 — Generate Audit Checklist
 
 python export_to_excel.py
 
-Generated file:
+---
 
-audit_checklist.xlsx
-Step 3 — Conduct the Audit
+Step 3 — Conduct Audit
 
-Open the checklist and update the Status column.
+Update the Status column:
 
-Options:
-
-Pass
-
-Fail
-
+Pass  
+Fail  
 Not Tested
 
 Optional fields:
 
-Evidence
-
+Evidence  
 Comments
+
+---
 
 Step 4 — Generate Compliance Report
 
-Run:
-
 python audit_score.py
 
-Output file:
+---
 
-audit_report.xlsx
-Step 5 — Launch the Dashboard
-
-Run:
+Step 5 — Launch Dashboard
 
 streamlit run audit_dashboard.py
 
-Upload the checklist file to visualize audit analytics.
+Upload the checklist to visualize results.
 
-Example Use Cases
+---
+
+## Use Cases
 
 This project demonstrates:
 
-Cybersecurity audit automation
+- Cybersecurity audit automation
+- Security compliance monitoring
+- Security control tracking
+- Risk analysis and reporting
+- Security dashboard visualization
 
-Security compliance monitoring
+---
 
-Security control tracking
+## Author
 
-Risk analysis and reporting
-
-Security dashboard visualization
-
-
-Author
 Praneetha
 
-GitHub Profile:
-
+GitHub  
 https://github.com/Praneetha2114
 
-License
+---
 
-This project is created for educational and portfolio purposes.
+## License
+
+Educational / portfolio project.
