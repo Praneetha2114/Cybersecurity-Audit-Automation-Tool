@@ -1,21 +1,21 @@
 Cybersecurity Audit Automation Tool
 
-A Python-based tool that helps automate cybersecurity audit processes by generating audit checklists, tracking control compliance, and visualizing results through an interactive dashboard.
+A Python-based project that automates parts of the cybersecurity audit process by generating audit checklists, calculating compliance scores, and visualizing results through an interactive dashboard.
 
-The project demonstrates how security audits can be automated using Python, Excel, and data visualization.
+This project demonstrates how security audits can be automated using Python, Excel, and data visualization.
 
-Project Features
+Features
 Control Library
 
-Centralized list of cybersecurity controls stored in questions.xlsx.
+Audit controls are stored in questions.xlsx and mapped to security frameworks.
 
-Each control includes:
+Each control contains:
 
 Domain
 
-Control Question
+Question
 
-Security Framework
+Framework
 
 Control ID
 
@@ -26,17 +26,17 @@ Access Control	Role-based access control implemented	ISO 27001	A.9.1
 Authentication	Multi-factor authentication enabled	CIS	CIS 6
 Automated Audit Checklist
 
-The script export_to_excel.py generates a structured audit checklist.
+The script export_to_excel.py automatically generates an audit checklist.
 
 Generated file:
 
 audit_checklist.xlsx
 
-Checklist format:
+Checklist structure:
 
 S.No	Domain	Question	Framework	Control ID	Status	Evidence	Comments
 
-Status dropdown options
+Status dropdown options:
 
 Pass
 
@@ -44,25 +44,25 @@ Fail
 
 Not Tested
 
-Automatic color indicators
+Status colors:
 
 Status	Color
 Pass	Green
 Fail	Red
 Not Tested	Yellow
-Compliance Analysis
+Compliance Scoring
 
 The script audit_score.py calculates audit results.
 
 Metrics generated:
 
-Total controls
+Total Controls
 
-Passed controls
+Passed Controls
 
-Failed controls
+Failed Controls
 
-Compliance percentage
+Compliance Percentage
 
 Example output:
 
@@ -84,9 +84,7 @@ streamlit run audit_dashboard.py
 
 Dashboard capabilities:
 
-Overall compliance metrics
-
-Control status distribution
+Compliance metrics
 
 Domain-wise compliance analysis
 
@@ -96,7 +94,7 @@ Failed control risk analysis
 
 Domain filtering
 
-Export filtered audit data
+Export audit data
 
 Technologies Used
 
@@ -111,7 +109,7 @@ Streamlit
 Microsoft Excel
 
 Project Structure
-cybersecurity-audit-tool
+Cybersecurity-Audit-Automation-Tool
 │
 ├── questions.xlsx
 ├── export_to_excel.py
@@ -124,19 +122,19 @@ Installation
 
 Clone the repository:
 
-git clone https://github.com/Praneetha2114/cybersecurity-audit-tool.git
+git clone https://github.com/Praneetha2114/Cybersecurity-Audit-Automation-Tool.git
 
 Navigate to the project folder:
 
-cd cybersecurity-audit-tool
+cd Cybersecurity-Audit-Automation-Tool
 
-Install required libraries:
+Install dependencies:
 
 pip install pandas openpyxl streamlit
 How to Use
 1. Define Controls
 
-Edit questions.xlsx and add audit controls.
+Add controls in questions.xlsx.
 
 Required columns:
 
@@ -152,7 +150,7 @@ This creates:
 audit_checklist.xlsx
 3. Perform Audit
 
-Open audit_checklist.xlsx and update the Status column.
+Open the checklist and update the Status column.
 
 Options:
 
@@ -162,7 +160,7 @@ Fail
 
 Not Tested
 
-Add evidence and comments if needed.
+You can also record Evidence and Comments.
 
 4. Generate Compliance Report
 
@@ -170,7 +168,7 @@ Run:
 
 python audit_score.py
 
-This produces:
+This generates:
 
 audit_report.xlsx
 5. Launch Dashboard
@@ -179,7 +177,7 @@ Run:
 
 streamlit run audit_dashboard.py
 
-Upload the generated checklist to visualize results.
+Upload the generated checklist to visualize audit analytics.
 
 Example Use Cases
 
@@ -189,23 +187,9 @@ Cybersecurity audit automation
 
 Compliance monitoring
 
-Risk analysis
+Security control tracking
 
-Security dashboard visualization
-
-Future Improvements
-
-Potential enhancements:
-
-PDF audit report generation
-
-Multi-organization audit support
-
-Control maturity scoring
-
-Cloud security control analysis
-
-Integration with vulnerability scanning tools
+Audit data visualization
 
 Author
 
