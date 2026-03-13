@@ -1,62 +1,64 @@
 Cybersecurity Audit Automation Tool
 
-A Python project that helps automate cybersecurity audits by generating audit checklists, calculating compliance, and visualizing results through a dashboard.
+A Python-based cybersecurity project designed to automate parts of the security audit process.
 
-Key Features
-Control Library
+This tool helps with:
 
-Stored in questions.xlsx
+Generating audit checklists
 
-Contains cybersecurity audit controls
+Tracking security control compliance
 
-Each control includes:
+Calculating audit scores
+
+Visualizing results through an interactive dashboard
+
+Project Features
+1. Control Library
+
+The project uses a centralized control repository stored in questions.xlsx.
+
+Each security control includes the following fields:
 
 Domain
 
-Question
+Control Question
 
-Framework
+Security Framework
 
 Control ID
 
-Example:
+Example Control Mapping
 
 Domain	Question	Framework	Control ID
-Access Control	Role-based access control implemented	ISO 27001	A.9.1
-Authentication	Multi-factor authentication enabled	CIS	CIS 6
-Audit Checklist Generator
+Access Control	Is role-based access control implemented?	ISO 27001	A.9.1
+Authentication	Is multi-factor authentication enabled?	CIS	CIS 6
+Monitoring	Are logs monitored using a SIEM tool?	NIST	DE.AE
+2. Automated Audit Checklist Generator
 
-Script: export_to_excel.py
+Script used:
 
-What it does:
+export_to_excel.py
+
+This script performs the following steps:
 
 Reads controls from questions.xlsx
 
-Generates audit_checklist.xlsx
+Generates a structured checklist
 
-Adds audit tracking columns
+Adds audit tracking columns automatically
 
-Checklist columns:
+Generated file:
 
-S.No
+audit_checklist.xlsx
 
-Domain
+Checklist Structure
 
-Question
+S.No	Domain	Question	Framework	Control ID	Status	Evidence	Comments
+1	Governance	Information Security Policy defined	ISO 27001	A.5.1	Not Tested		
+2	Access Control	Role-based access implemented	ISO 27001	A.9.1	Not Tested		
+3. Status Tracking
 
-Framework
-
-Control ID
-
-Status
-
-Evidence
-
-Comments
-
-Status Tracking
-
-Dropdown options:
+The Status column includes a dropdown menu with the following options:
 
 Pass
 
@@ -64,59 +66,125 @@ Fail
 
 Not Tested
 
-Color indicators:
+Each status is automatically color-coded.
 
-Status	Color
+Status	Color Indicator
 Pass	Green
 Fail	Red
 Not Tested	Yellow
-Compliance Scoring
 
-Script: audit_score.py
+This helps auditors quickly identify control results.
 
-Calculates:
+4. Compliance Scoring
 
-Total controls
+Script used:
 
-Passed controls
+audit_score.py
 
-Failed controls
+This script calculates audit metrics including:
 
-Compliance percentage
+Total Controls
 
-Example output:
+Passed Controls
+
+Failed Controls
+
+Compliance Percentage
+
+Example Output
 
 Total Controls: 45
 Passed Controls: 30
 Failed Controls: 10
 Compliance Score: 66.7%
 
-Generated file:
+Generated report file:
 
 audit_report.xlsx
-Interactive Dashboard
+5. Interactive Audit Dashboard
 
-Script: audit_dashboard.py
+Script used:
 
-Run using:
+audit_dashboard.py
+
+The dashboard is built using Streamlit.
+
+Run the dashboard using:
 
 streamlit run audit_dashboard.py
+Dashboard Capabilities
 
-Dashboard features:
+The dashboard provides:
 
-Compliance metrics
+• Overall compliance metrics
 
-Domain compliance analysis
+Total Controls
 
-Framework coverage
+Passed Controls
 
-Failed control risk analysis
+Failed Controls
 
-Domain filtering
+Compliance Percentage
 
-Export audit data
+• Control Status Distribution
 
+Visualization showing:
+
+Pass
+
+Fail
+
+Not Tested
+
+• Domain Compliance Analysis
+
+Example:
+
+Domain	Passed	Failed	Compliance %
+Access Control	8	2	80%
+Authentication	6	4	60%
+
+• Framework Coverage
+
+Shows number of controls mapped to frameworks.
+
+Framework	Controls
+ISO 27001	20
+NIST	15
+CIS	10
+
+• Failed Control Risk Analysis
+
+Failed controls are categorized by risk.
+
+Domain	Question	Risk Level
+Authentication	MFA not enabled	High
+Backup & Recovery	Backup not tested	Medium
+
+• Domain Filtering
+
+Users can filter the dashboard by security domain.
+
+Example filters:
+
+Governance
+
+Access Control
+
+Authentication
+
+Monitoring
+
+Incident Response
+
+• Export Results
+
+Users can export filtered results as:
+
+audit_results.csv
 Technologies Used
+
+This project uses the following technologies:
 
 Python
 
@@ -126,7 +194,7 @@ OpenPyXL
 
 Streamlit
 
-Excel
+Microsoft Excel
 
 Project Structure
 Cybersecurity-Audit-Automation-Tool
@@ -139,34 +207,34 @@ Cybersecurity-Audit-Automation-Tool
 ├── audit_report.xlsx
 └── README.md
 Installation
-Clone repository
+1. Clone the Repository
 git clone https://github.com/Praneetha2114/Cybersecurity-Audit-Automation-Tool.git
-Navigate to project folder
+2. Navigate to the Project Folder
 cd Cybersecurity-Audit-Automation-Tool
-Install dependencies
+3. Install Dependencies
 pip install pandas openpyxl streamlit
-How to Use
-Step 1 — Define Controls
+How to Use the Tool
+Step 1 — Define Security Controls
 
-Edit:
+Edit the control library:
 
 questions.xlsx
 
 Required columns:
 
 Domain | Question | Framework | Control ID
-Step 2 — Generate Checklist
+Step 2 — Generate the Audit Checklist
 
 Run:
 
 python export_to_excel.py
 
-Creates:
+Generated file:
 
 audit_checklist.xlsx
-Step 3 — Conduct Audit
+Step 3 — Conduct the Audit
 
-Update the Status column in the checklist:
+Open the checklist and update the Status column:
 
 Pass
 
@@ -186,36 +254,38 @@ Run:
 
 python audit_score.py
 
-Creates:
+Output:
 
 audit_report.xlsx
-Step 5 — Launch Dashboard
+Step 5 — Launch the Dashboard
 
 Run:
 
 streamlit run audit_dashboard.py
 
-Upload audit_checklist.xlsx to visualize results.
+Upload the checklist file to visualize results.
 
-Use Cases
+Example Use Cases
 
 This project demonstrates:
 
 Cybersecurity audit automation
 
-Compliance monitoring
+Security compliance tracking
 
-Security control management
+Security control monitoring
 
-Audit data visualization
+Risk analysis and reporting
+
+Security dashboard visualization
 
 Author
 
 Praneetha
 
-GitHub:
+GitHub Profile
 https://github.com/Praneetha2114
 
 License
 
-Educational / portfolio project.
+This project is created for educational and portfolio purposes.
