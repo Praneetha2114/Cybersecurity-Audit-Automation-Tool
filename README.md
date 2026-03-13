@@ -1,15 +1,15 @@
 Cybersecurity Audit Automation Tool
 
-A Python-based project that automates parts of the cybersecurity audit process by generating audit checklists, calculating compliance scores, and visualizing results through an interactive dashboard.
+A Python project that helps automate cybersecurity audits by generating audit checklists, calculating compliance, and visualizing results through a dashboard.
 
-This project demonstrates how security audits can be automated using Python, Excel, and data visualization.
-
-Features
+Key Features
 Control Library
 
-Audit controls are stored in questions.xlsx and mapped to security frameworks.
+Stored in questions.xlsx
 
-Each control contains:
+Contains cybersecurity audit controls
+
+Each control includes:
 
 Domain
 
@@ -24,19 +24,39 @@ Example:
 Domain	Question	Framework	Control ID
 Access Control	Role-based access control implemented	ISO 27001	A.9.1
 Authentication	Multi-factor authentication enabled	CIS	CIS 6
-Automated Audit Checklist
+Audit Checklist Generator
 
-The script export_to_excel.py automatically generates an audit checklist.
+Script: export_to_excel.py
 
-Generated file:
+What it does:
 
-audit_checklist.xlsx
+Reads controls from questions.xlsx
 
-Checklist structure:
+Generates audit_checklist.xlsx
 
-S.No	Domain	Question	Framework	Control ID	Status	Evidence	Comments
+Adds audit tracking columns
 
-Status dropdown options:
+Checklist columns:
+
+S.No
+
+Domain
+
+Question
+
+Framework
+
+Control ID
+
+Status
+
+Evidence
+
+Comments
+
+Status Tracking
+
+Dropdown options:
 
 Pass
 
@@ -44,7 +64,7 @@ Fail
 
 Not Tested
 
-Status colors:
+Color indicators:
 
 Status	Color
 Pass	Green
@@ -52,17 +72,17 @@ Fail	Red
 Not Tested	Yellow
 Compliance Scoring
 
-The script audit_score.py calculates audit results.
+Script: audit_score.py
 
-Metrics generated:
+Calculates:
 
-Total Controls
+Total controls
 
-Passed Controls
+Passed controls
 
-Failed Controls
+Failed controls
 
-Compliance Percentage
+Compliance percentage
 
 Example output:
 
@@ -71,22 +91,22 @@ Passed Controls: 30
 Failed Controls: 10
 Compliance Score: 66.7%
 
-Results exported to:
+Generated file:
 
 audit_report.xlsx
 Interactive Dashboard
 
-The project includes a Streamlit dashboard to visualize audit results.
+Script: audit_dashboard.py
 
-Run:
+Run using:
 
 streamlit run audit_dashboard.py
 
-Dashboard capabilities:
+Dashboard features:
 
 Compliance metrics
 
-Domain-wise compliance analysis
+Domain compliance analysis
 
 Framework coverage
 
@@ -106,7 +126,7 @@ OpenPyXL
 
 Streamlit
 
-Microsoft Excel
+Excel
 
 Project Structure
 Cybersecurity-Audit-Automation-Tool
@@ -119,40 +139,34 @@ Cybersecurity-Audit-Automation-Tool
 ├── audit_report.xlsx
 └── README.md
 Installation
-
-Clone the repository:
-
+Clone repository
 git clone https://github.com/Praneetha2114/Cybersecurity-Audit-Automation-Tool.git
-
-Navigate to the project folder:
-
+Navigate to project folder
 cd Cybersecurity-Audit-Automation-Tool
-
-Install dependencies:
-
+Install dependencies
 pip install pandas openpyxl streamlit
 How to Use
-1. Define Controls
+Step 1 — Define Controls
 
-Add controls in questions.xlsx.
+Edit:
+
+questions.xlsx
 
 Required columns:
 
 Domain | Question | Framework | Control ID
-2. Generate Audit Checklist
+Step 2 — Generate Checklist
 
 Run:
 
 python export_to_excel.py
 
-This creates:
+Creates:
 
 audit_checklist.xlsx
-3. Perform Audit
+Step 3 — Conduct Audit
 
-Open the checklist and update the Status column.
-
-Options:
+Update the Status column in the checklist:
 
 Pass
 
@@ -160,26 +174,30 @@ Fail
 
 Not Tested
 
-You can also record Evidence and Comments.
+Optional fields:
 
-4. Generate Compliance Report
+Evidence
+
+Comments
+
+Step 4 — Generate Compliance Report
 
 Run:
 
 python audit_score.py
 
-This generates:
+Creates:
 
 audit_report.xlsx
-5. Launch Dashboard
+Step 5 — Launch Dashboard
 
 Run:
 
 streamlit run audit_dashboard.py
 
-Upload the generated checklist to visualize audit analytics.
+Upload audit_checklist.xlsx to visualize results.
 
-Example Use Cases
+Use Cases
 
 This project demonstrates:
 
@@ -187,7 +205,7 @@ Cybersecurity audit automation
 
 Compliance monitoring
 
-Security control tracking
+Security control management
 
 Audit data visualization
 
@@ -200,4 +218,4 @@ https://github.com/Praneetha2114
 
 License
 
-This project is intended for educational and portfolio purposes.
+Educational / portfolio project.
