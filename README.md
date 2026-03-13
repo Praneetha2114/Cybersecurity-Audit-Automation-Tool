@@ -1,119 +1,114 @@
 Cybersecurity Audit Automation Tool
 
-Overview-
-The Cybersecurity Audit Automation Tool is a Python-based project designed to simplify and automate cybersecurity audit processes. It generates audit checklists, tracks compliance, analyzes security controls, and provides an interactive dashboard for visualizing audit results.
+A Python-based tool that helps automate cybersecurity audit processes by generating audit checklists, tracking control compliance, and visualizing results through an interactive dashboard.
 
-This project demonstrates how cybersecurity audits can be automated using Python, Excel, and a web-based dashboard. It supports security frameworks such as ISO 27001, NIST, and CIS Controls.
+The project demonstrates how security audits can be automated using Python, Excel, and data visualization.
 
-The tool is intended as a learning project and portfolio project for cybersecurity and data analysis roles.
-
-Key Features-
+Project Features
 Control Library
-The project uses a centralized control library stored in questions.xlsx which contains cybersecurity audit controls categorized by domain.
-Each control includes:
--Domain
--Control Question
--Security Framework
--Control ID
 
+Centralized list of cybersecurity controls stored in questions.xlsx.
+
+Each control includes:
+
+Domain
+
+Control Question
+
+Security Framework
+
+Control ID
 
 Example:
+
 Domain	Question	Framework	Control ID
-Access Control	Is role-based access control implemented?	ISO 27001	A.9.1
-Authentication	Is multi-factor authentication enabled?	CIS	CIS 6
-Automated Audit Checklist Generation
+Access Control	Role-based access control implemented	ISO 27001	A.9.1
+Authentication	Multi-factor authentication enabled	CIS	CIS 6
+Automated Audit Checklist
 
-The script export_to_excel.py automatically generates a structured audit checklist from the control library.
+The script export_to_excel.py generates a structured audit checklist.
+
 Generated file:
--audit_checklist.xlsx
 
-Checklist columns:
+audit_checklist.xlsx
+
+Checklist format:
+
 S.No	Domain	Question	Framework	Control ID	Status	Evidence	Comments
-Status Options
 
-A dropdown is automatically added with:
--Pass
--Fail
--Not Tested
+Status dropdown options
 
-Color Indicators
+Pass
+
+Fail
+
+Not Tested
+
+Automatic color indicators
+
 Status	Color
 Pass	Green
 Fail	Red
 Not Tested	Yellow
-Compliance Scoring
+Compliance Analysis
 
-The script audit_score.py calculates audit results based on the status of controls.
+The script audit_score.py calculates audit results.
 
-It calculates:
-Total Controls
-Passed Controls
-Failed Controls
-Compliance Percentage
+Metrics generated:
+
+Total controls
+
+Passed controls
+
+Failed controls
+
+Compliance percentage
 
 Example output:
-Audit Compliance Report
+
 Total Controls: 45
 Passed Controls: 30
 Failed Controls: 10
 Compliance Score: 66.7%
 
-Results are exported to:
+Results exported to:
+
 audit_report.xlsx
+Interactive Dashboard
 
-Interactive Audit Dashboard
-The project includes a Streamlit-based dashboard for visualizing audit results.
-File:
-audit_dashboard.py
+The project includes a Streamlit dashboard to visualize audit results.
 
-The dashboard allows users to upload the audit checklist and view analytics.
+Run:
 
-Dashboard Features
-Overall Compliance Metrics
-Total Controls
-Passed Controls
-Failed Controls
-Compliance Percentage
-Status Distribution
+streamlit run audit_dashboard.py
 
-Visual distribution of:
-Pass
-Fail
-Not Tested
+Dashboard capabilities:
 
-Domain Compliance Analysis
-Shows compliance percentage for each security domain.
+Overall compliance metrics
 
+Control status distribution
 
-Example:
-Domain	Passed	Failed	Compliance %
-Access Control	8	2	80%
-Authentication	6	4	60%
+Domain-wise compliance analysis
 
-Framework Coverage
-Displays number of controls mapped to frameworks such as:
-ISO 27001
-NIST
-CIS Controls
-Failed Control Risk Analysis
-Failed controls are categorized by risk level.
+Framework coverage
 
-Example:
-Domain	Question	Risk Level
-Authentication	MFA not implemented	High
-Backup	Backup restoration not tested	Medium
+Failed control risk analysis
 
-Domain Filtering
-Users can filter controls by domain using a sidebar.
-Export Data
-Filtered audit results can be downloaded as CSV.
+Domain filtering
+
+Export filtered audit data
 
 Technologies Used
+
 Python
+
 Pandas
+
 OpenPyXL
+
 Streamlit
-Excel
+
+Microsoft Excel
 
 Project Structure
 cybersecurity-audit-tool
@@ -126,75 +121,99 @@ cybersecurity-audit-tool
 ├── audit_report.xlsx
 └── README.md
 Installation
-Clone the repository
+
+Clone the repository:
+
 git clone https://github.com/Praneetha2114/cybersecurity-audit-tool.git
 
 Navigate to the project folder:
 
 cd cybersecurity-audit-tool
-Install required packages
+
+Install required libraries:
+
 pip install pandas openpyxl streamlit
 How to Use
-Step 1: Prepare the Control Library
-Edit questions.xlsx to define cybersecurity controls.
+1. Define Controls
 
-Columns required:
+Edit questions.xlsx and add audit controls.
+
+Required columns:
+
 Domain | Question | Framework | Control ID
+2. Generate Audit Checklist
 
-Step 2: Generate Audit Checklist
 Run:
+
 python export_to_excel.py
 
 This creates:
-audit_checklist.xlsx
 
-Step 3: Conduct the Audit
+audit_checklist.xlsx
+3. Perform Audit
+
 Open audit_checklist.xlsx and update the Status column.
+
 Options:
+
 Pass
+
 Fail
+
 Not Tested
 
-You can also record:
-Evidence
-Comments
+Add evidence and comments if needed.
 
-Step 4: Calculate Compliance
+4. Generate Compliance Report
+
 Run:
+
 python audit_score.py
-This generates:
-audit_report.xlsx
 
-Step 5: Launch Dashboard
+This produces:
+
+audit_report.xlsx
+5. Launch Dashboard
+
 Run:
+
 streamlit run audit_dashboard.py
-The dashboard will open in your browser.
-Upload:
-audit_checklist.xlsx
-to view audit analytics.
+
+Upload the generated checklist to visualize results.
 
 Example Use Cases
-This tool can help demonstrate:
-Cybersecurity audit automation
-Compliance tracking
-Risk analysis
-Security control monitoring
-Security dashboard visualization
-Future Improvements
-Possible future enhancements:
-PDF audit report generation
-User authentication for auditors
-Cloud security control analysis
-Audit maturity scoring
-Integration with vulnerability scanners
-Multi-company audit tracking
 
+This project demonstrates:
+
+Cybersecurity audit automation
+
+Compliance monitoring
+
+Risk analysis
+
+Security dashboard visualization
+
+Future Improvements
+
+Potential enhancements:
+
+PDF audit report generation
+
+Multi-organization audit support
+
+Control maturity scoring
+
+Cloud security control analysis
+
+Integration with vulnerability scanning tools
 
 Author
+
 Praneetha
 
-GitHub Profile:
+GitHub:
 https://github.com/Praneetha2114
 
 License
-This project is for educational and portfolio purposes.
+
+This project is intended for educational and portfolio purposes.
