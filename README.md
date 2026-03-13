@@ -1,47 +1,41 @@
 Cybersecurity Audit Automation Tool
 
-A Python-based cybersecurity project designed to automate parts of the security audit process.
+A Python-based project that automates key steps of the cybersecurity audit process.
 
-This tool helps with:
-
-Generating audit checklists
-
-Tracking security control compliance
-
-Calculating audit scores
-
-Visualizing results through an interactive dashboard
+The tool helps generate audit checklists, calculate compliance results, and visualize audit findings using an interactive dashboard.
 
 Project Features
-1. Control Library
+Control Library
 
-The project uses a centralized control repository stored in questions.xlsx.
+The project maintains a centralized list of security controls in:
 
-Each security control includes the following fields:
+questions.xlsx
+
+Each control contains the following fields:
 
 Domain
 
-Control Question
+Question
 
-Security Framework
+Framework
 
 Control ID
 
-Example Control Mapping
+Example control mapping:
 
 Domain	Question	Framework	Control ID
-Access Control	Is role-based access control implemented?	ISO 27001	A.9.1
-Authentication	Is multi-factor authentication enabled?	CIS	CIS 6
-Monitoring	Are logs monitored using a SIEM tool?	NIST	DE.AE
-2. Automated Audit Checklist Generator
+Access Control	Role-based access control implemented	ISO 27001	A.9.1
+Authentication	Multi-factor authentication enabled	CIS	CIS 6
+Monitoring	Logs monitored using a SIEM tool	NIST	DE.AE
+Automated Audit Checklist Generation
 
 Script used:
 
 export_to_excel.py
 
-This script performs the following steps:
+Functionality:
 
-Reads controls from questions.xlsx
+Reads security controls from questions.xlsx
 
 Generates a structured checklist
 
@@ -51,14 +45,12 @@ Generated file:
 
 audit_checklist.xlsx
 
-Checklist Structure
+Checklist structure:
 
 S.No	Domain	Question	Framework	Control ID	Status	Evidence	Comments
-1	Governance	Information Security Policy defined	ISO 27001	A.5.1	Not Tested		
-2	Access Control	Role-based access implemented	ISO 27001	A.9.1	Not Tested		
-3. Status Tracking
+Status Tracking
 
-The Status column includes a dropdown menu with the following options:
+The Status column contains a dropdown with three values:
 
 Pass
 
@@ -66,22 +58,22 @@ Fail
 
 Not Tested
 
-Each status is automatically color-coded.
+Status colors are automatically applied.
 
-Status	Color Indicator
+Status	Color
 Pass	Green
 Fail	Red
 Not Tested	Yellow
 
-This helps auditors quickly identify control results.
+This allows quick identification of control results.
 
-4. Compliance Scoring
+Compliance Scoring
 
 Script used:
 
 audit_score.py
 
-This script calculates audit metrics including:
+The script calculates the following metrics:
 
 Total Controls
 
@@ -91,7 +83,7 @@ Failed Controls
 
 Compliance Percentage
 
-Example Output
+Example output:
 
 Total Controls: 45
 Passed Controls: 30
@@ -101,7 +93,7 @@ Compliance Score: 66.7%
 Generated report file:
 
 audit_report.xlsx
-5. Interactive Audit Dashboard
+Interactive Audit Dashboard
 
 Script used:
 
@@ -114,9 +106,9 @@ Run the dashboard using:
 streamlit run audit_dashboard.py
 Dashboard Capabilities
 
-The dashboard provides:
+The dashboard provides the following analytics:
 
-• Overall compliance metrics
+Compliance Metrics
 
 Total Controls
 
@@ -126,9 +118,9 @@ Failed Controls
 
 Compliance Percentage
 
-• Control Status Distribution
+Control Status Distribution
 
-Visualization showing:
+Displays the distribution of:
 
 Pass
 
@@ -136,7 +128,7 @@ Fail
 
 Not Tested
 
-• Domain Compliance Analysis
+Domain Compliance Analysis
 
 Example:
 
@@ -144,28 +136,28 @@ Domain	Passed	Failed	Compliance %
 Access Control	8	2	80%
 Authentication	6	4	60%
 
-• Framework Coverage
+Framework Coverage
 
-Shows number of controls mapped to frameworks.
+Displays the number of controls mapped to frameworks.
 
 Framework	Controls
 ISO 27001	20
 NIST	15
 CIS	10
 
-• Failed Control Risk Analysis
+Failed Control Risk Analysis
 
 Failed controls are categorized by risk.
 
 Domain	Question	Risk Level
 Authentication	MFA not enabled	High
-Backup & Recovery	Backup not tested	Medium
+Backup & Recovery	Backup restoration not tested	Medium
 
-• Domain Filtering
+Domain Filtering
 
 Users can filter the dashboard by security domain.
 
-Example filters:
+Examples:
 
 Governance
 
@@ -177,14 +169,14 @@ Monitoring
 
 Incident Response
 
-• Export Results
+Export Results
 
-Users can export filtered results as:
+Filtered results can be exported as:
 
 audit_results.csv
 Technologies Used
 
-This project uses the following technologies:
+The project uses the following technologies:
 
 Python
 
@@ -207,11 +199,17 @@ Cybersecurity-Audit-Automation-Tool
 ├── audit_report.xlsx
 └── README.md
 Installation
-1. Clone the Repository
+
+Clone the repository:
+
 git clone https://github.com/Praneetha2114/Cybersecurity-Audit-Automation-Tool.git
-2. Navigate to the Project Folder
+
+Navigate to the project folder:
+
 cd Cybersecurity-Audit-Automation-Tool
-3. Install Dependencies
+
+Install dependencies:
+
 pip install pandas openpyxl streamlit
 How to Use the Tool
 Step 1 — Define Security Controls
@@ -225,7 +223,7 @@ Required columns:
 Domain | Question | Framework | Control ID
 Step 2 — Generate the Audit Checklist
 
-Run:
+Run the following script:
 
 python export_to_excel.py
 
@@ -234,7 +232,9 @@ Generated file:
 audit_checklist.xlsx
 Step 3 — Conduct the Audit
 
-Open the checklist and update the Status column:
+Open the checklist and update the Status column.
+
+Options:
 
 Pass
 
@@ -254,7 +254,7 @@ Run:
 
 python audit_score.py
 
-Output:
+Output file:
 
 audit_report.xlsx
 Step 5 — Launch the Dashboard
@@ -263,7 +263,7 @@ Run:
 
 streamlit run audit_dashboard.py
 
-Upload the checklist file to visualize results.
+Upload the checklist file to visualize audit analytics.
 
 Example Use Cases
 
@@ -271,19 +271,20 @@ This project demonstrates:
 
 Cybersecurity audit automation
 
-Security compliance tracking
+Security compliance monitoring
 
-Security control monitoring
+Security control tracking
 
 Risk analysis and reporting
 
 Security dashboard visualization
 
-Author
 
+Author
 Praneetha
 
-GitHub Profile
+GitHub Profile:
+
 https://github.com/Praneetha2114
 
 License
